@@ -30,7 +30,7 @@ export default class BaseNavigator extends Component {
             />
         );
     }
-    
+
     push(route: any) {
         this.refs.navigator.push(route);
     }
