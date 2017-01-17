@@ -8,6 +8,8 @@ import {
     Navigator,
 } from 'react-native';
 
+import PersonalCenter from '../component/personal/personalCenter';
+
 type Props = {};
 
 export default class BaseNavigator extends Component {
@@ -40,17 +42,9 @@ export default class BaseNavigator extends Component {
     }
 
     renderScene(route: any, navigator: Navigator) {
-        // if (route.settings) {
-        //     // return (
-        //     //     <
-        //     // )
-        // }
-        //
-        // if (route.locations) {
-        //     return (
-        //
-        //     )
-        // }
+        return (
+            <PersonalCenter navigator = {this}/>
+        );
     }
 }
 

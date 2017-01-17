@@ -3,18 +3,22 @@
  */
 
 import StatusBar from 'StatusBar';
-import React, { Component } from 'react';
-import {
-    StyleSheet,
-    View,
-    AppRegistry,
-} from 'react-native';
+import React, {Component} from 'react';
+import {StyleSheet, View, AppRegistry} from 'react-native';
 
-export default  class App extends Component {
+import BaseNavigator from '../src/navigators/baseNavigator';
+
+export default class App extends Component {
     render() {
-        <View style={styles.container}>
-            <StatusBar translucent={true} backgroundColor={'transparent'} barStyle={'light-content'}/>
-        </View>
+        return (
+            <View style={styles.container}>
+                <StatusBar
+                    translucent={true}
+                    backgroundColor={'transparent'}
+                    barStyle={'light-content'}/>
+                <BaseNavigator/>
+            </View>
+        )
     }
 }
 
@@ -23,4 +27,3 @@ const styles = StyleSheet.create({
         flex: 1
     }
 });
-
