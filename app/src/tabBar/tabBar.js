@@ -86,7 +86,7 @@ export default class BaseTabBar extends Component {
                 onPress={()=> this.onPress(tabName)}
                 renderBadge={()=> isBadge? <View style={styles.badgeView}><Text style={styles.badgeText}>15</Text></View> : null}
             >
-                <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}><Text>{tabContent}</Text></View>
+                {this.createChildView(tabContent)}
             </TabNavigatorItem>
         );
     }
@@ -104,6 +104,16 @@ export default class BaseTabBar extends Component {
                 {this.renderTabView('关注', 'Follow', '关注板块', false, 2)}
                 {this.renderTabView('我的', 'Mine', '我的模块', false, 3)}
             </TabNavigator>
+        );
+    }
+
+    /**
+     * 创建子视图
+     * @param tag
+     */
+    createChildView(tag) {
+        return (
+            <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}><Text>{tag}</Text></View>
         );
     }
 
@@ -156,5 +166,10 @@ const styles = StyleSheet.create({
     badgeText: {
         color: '#fff',
         fontSize: 8,
+    },
+
+    titleText: {
+        color: 'black',
+        fontSize: 18.0,
     }
 });
