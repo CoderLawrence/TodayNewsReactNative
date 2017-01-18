@@ -79,8 +79,82 @@ export default class BaseTabBar extends Component {
         return (
             <TabNavigatorItem
                 title={title}
-                renderIcon={() => <Image style={}/>}
-            />
-        )
+                renderIcon={() => <Image style={styles.tabIcon} source={tabNormal}/>}
+                renderSelectedIcon={()=> <Image style={styles.tabIcon} source={tabPress}/>}
+                selected={this.state.selectedTab == tabName}
+                selectedTitleStyle={{color: '#f85959'}}
+                onPress={()=> this.onPress(tabName)}
+                renderBadge={()=> isBadge? <View style={styles.badgeView}><Text style={styles.badgeText}>15</Text></View> : null}
+            >
+                <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}><Text>{tabContent}</Text></View>
+            </TabNavigatorItem>
+        );
+    }
+
+    /**
+     * 自定义tabBar
+     */
+    tabBarView() {
+        return (
+            <TabNavigator
+                tabBarStyle={styles.tab}
+            >
+                {this.renderTabView('头条', 'Home', '头条板块', true, 0)}
+                {this.renderTabView('视频', 'Video', '视频模块', true, 1)}
+                {this.renderTabView('关注', 'Follow', '关注板块', false, 2)}
+                {this.renderTabView('我的', 'Mine', '我的模块', false, 3)}
+            </TabNavigator>
+        );
+    }
+
+    render() {
+        var tabBarView = this.tabBarView();
+        return (
+          <View style={styles.container}>
+              {tabBarView}
+          </View>
+        );
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#F5FCFF',
+    },
+
+    instructions: {
+        textAlign: 'center',
+        color: '#333333',
+        marginBottom: 5,
+    },
+
+    tab: {
+        height: 52,
+        alignItems: 'center',
+        backgroundColor: '#f4f5f6',
+    },
+
+    tabIcon: {
+        width: 25,
+        height:25,
+    },
+
+    badgeView: {
+        width: 22,
+        height: 14,
+        backgroundColor: '#f85959',
+        borderWidth: 1,
+        marginLeft: 10,
+        marginTop: 3,
+        borderColor: '#FFF',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 8,
+    },
+
+    badgeText: {
+        color: '#fff',
+        fontSize: 8,
+    }
+});

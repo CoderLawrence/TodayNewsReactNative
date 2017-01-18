@@ -7,6 +7,7 @@ import React, {Component} from 'react';
 import {StyleSheet, View, AppRegistry} from 'react-native';
 
 import BaseNavigator from '../src/navigators/baseNavigator';
+import BaseTabBar from '../src/tabBar/tabBar';
 
 export default class App extends Component {
     render() {
@@ -16,7 +17,7 @@ export default class App extends Component {
                     translucent={true}
                     backgroundColor={'transparent'}
                     barStyle={'light-content'}/>
-                <BaseNavigator/>
+                <BaseTabBar/>
             </View>
         )
     }
