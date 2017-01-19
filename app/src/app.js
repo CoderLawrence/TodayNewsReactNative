@@ -11,14 +11,26 @@ import {
     StatusBar
 } from 'react-native';
 
-import BaseTabBar from '../src/tabBar/tabBar';
+import TabBarView from '../src/tabBar/tabBarView'
 
 export default class App extends Component {
     render() {
         return (
            <View style={styles.container}>
                <StatusBar barStyle = 'light-content'/>
-               <BaseTabBar/>
+               <Navigator
+                   initialRoute={{name:'TabBarView', component: TabBarView}}
+                   configureScene={() => {
+                       return Navigator.SceneConfigs.PushFromRight;
+                   }}
+
+                   renderScene={(route, navigator) => {
+                       let Component = route.component;
+                       return (
+                           <Component navigator = {navigator} route = {route} {...route.passProps}/>
+                       )
+                   }}
+               />
            </View>
         );
     }

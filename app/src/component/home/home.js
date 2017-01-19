@@ -1,5 +1,5 @@
 /**
- * Created by lawrence on 2017/1/17.
+ * Created by lawrence on 2017/1/19.
  */
 
 import React, { Component } from 'react';
@@ -9,7 +9,7 @@ import {
     StyleSheet,
 } from 'react-native';
 
-export default class PersonalCenter extends Component {
+export default class Home extends Component {
     render () {
         return (
             <View style={styles.container}>
