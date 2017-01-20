@@ -6,7 +6,7 @@ import React, {Component} from 'react';
 import {
     StyleSheet,
     View,
-    Navigator,
+    NavigatorIOS,
     AppRegistry,
     StatusBar
 } from 'react-native';
@@ -18,8 +18,9 @@ export default class App extends Component {
         return (
            <View style={styles.container}>
                <StatusBar barStyle = 'light-content'/>
-               <Navigator
-                   initialRoute={{name:'TabBarView', component: TabBarView}}
+               <NavigatorIOS
+                   style = {styles.container}
+                   initialRoute={{title:'首页', component: TabBarView}}
                    configureScene={() => {
                        return Navigator.SceneConfigs.PushFromRight;
                    }}

@@ -13,7 +13,7 @@ export default class Home extends Component {
     render () {
         return (
             <View style={styles.container}>
-                <Text>hello world</Text>
+                <Text style={{alignItems:'center',}}>首页模块</Text>
             </View>
         )
     }
