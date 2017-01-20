@@ -68,6 +68,10 @@ export default class TabBarView extends Component {
                             >
                                 <NavigatorIOS
                                     style = {{flex: 1}}
+                                    translucent={false}
+                                    barTintColor={'#BB1919'}
+                                    titleTextColor={'white'}
+                                    tintColor={'white'}
                                     initialRoute={{title: controller.title, component: Component}}
                                     configureScence = {() => {
                                         return Navigator.SceneConfigs.PushFromRight;
