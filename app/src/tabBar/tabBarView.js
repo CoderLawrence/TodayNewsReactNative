@@ -8,6 +8,7 @@ import {
     Text,
     StyleSheet,
     TabBarIOS,
+    NavigatorIOS,
 } from 'react-native';
 
 import Constants from '../common/constants';
@@ -65,7 +66,20 @@ export default class TabBarView extends Component {
                                     })
                                 }}
                             >
-                                <Component navigator = {this.props.navigator} {...this.props}/>
+                                <NavigatorIOS
+                                    style = {{flex: 1}}
+                                    initialRoute={{title: controller.title, component: Component}}
+                                    configureScence = {() => {
+                                        return Navigator.SceneConfigs.PushFromRight;
+                                    }}
+
+                                    renderScence = {(route, navigator) => {
+                                        let Component = route.component;
+                                        return (
+                                            <Component navigator = {navigator} route = {route} {...route.passProps}/>
+                                        )
+                                    }}
+                                />
                             </TabBarIOS.Item>
                         )
                     })
