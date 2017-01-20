@@ -12,12 +12,3 @@ let window = {
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
 }
-
-/**
- *  颜色集合
- * @type {{themeColor: string}}
- */
-let colors = {
-    themeColor: 'rgb(217, 51, 58)',
-}
-
