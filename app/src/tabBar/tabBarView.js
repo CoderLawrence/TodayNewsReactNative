@@ -46,7 +46,7 @@ export default class TabBarView extends Component {
     render() {
         return (
             <TabBarIOS
-                tintColor={'red'}
+                tintColor={Constants.colors.themeColor}
                 barTintColor={'white'}
             >
                 {
@@ -69,7 +69,7 @@ export default class TabBarView extends Component {
                                 <NavigatorIOS
                                     style = {{flex: 1}}
                                     translucent={false}
-                                    barTintColor={'#BB1919'}
+                                    barTintColor={Constants.colors.themeColor}
                                     titleTextColor={'white'}
                                     tintColor={'white'}
                                     navigationBarHidden={i === 3 ? true : false}
