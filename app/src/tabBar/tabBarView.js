@@ -15,7 +15,7 @@ import Constants from '../common/constants';
 import Home from '../component/home/home';
 import Video from '../component/video/video';
 import Care from '../component/care/care';
-import Personal from '../component/personal/personalCenter';
+import Personal from '../component/personal/personal';
 
 const Tab_Normal_Home = require('../../img/tabBar/home_tabbar_32x32_@2x.png');
 const Tab_Normal_Video = require('../../img/tabBar/video_tabbar_32x32_@2x.png');
@@ -72,6 +72,7 @@ export default class TabBarView extends Component {
                                     barTintColor={'#BB1919'}
                                     titleTextColor={'white'}
                                     tintColor={'white'}
+                                    navigationBarHidden={i === 3 ? true : false}
                                     initialRoute={{title: controller.title, component: Component}}
                                     configureScence = {() => {
                                         return Navigator.SceneConfigs.PushFromRight;

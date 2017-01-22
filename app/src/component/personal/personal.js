@@ -9,7 +9,14 @@ import {
     StyleSheet,
 } from 'react-native';
 
-export default class PersonalCenter extends Component {
+export default class Personal extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.props.navigator.navigationBarHidden = true;
+    }
+
     render () {
         return (
             <View style={styles.container}>

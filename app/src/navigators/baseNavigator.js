@@ -8,7 +8,7 @@ import {
     Navigator,
 } from 'react-native';
 
-import PersonalCenter from '../component/personal/personalCenter';
+import PersonalCenter from '../component/personal/personal';
 
 type Props = {};
 
