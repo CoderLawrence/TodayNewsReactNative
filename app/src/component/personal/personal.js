@@ -22,7 +22,7 @@ export default class Personal extends Component {
     render () {
         return (
             <View style={styles.container}>
-                <PersonalHeader/>
+                <PersonalHeader name = 'CoderLawrence'/>
             </View>
         )
     }
