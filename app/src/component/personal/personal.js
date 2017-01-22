@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 
 import Constants from '../../common/constants';
+import PersonalHeader from '../../views/personal/PersonalHeader';
 
 export default class Personal extends Component {
 
@@ -21,8 +22,7 @@ export default class Personal extends Component {
     render () {
         return (
             <View style={styles.container}>
-                <Image style={styles.backgroundImage} source={require('../../../img/personal/wallpaper_profile_night@2x.jpg')}>
-                </Image>
+                <PersonalHeader/>
             </View>
         )
     }
@@ -34,9 +34,4 @@ const  styles = StyleSheet.create({
         backgroundColor: '#ffffff',
     },
 
-    backgroundImage: {
-        width: Constants.window.width,
-        height: 220,
-        alignItems: 'center',
-    }
 })
