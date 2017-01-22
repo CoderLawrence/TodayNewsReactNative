@@ -69,8 +69,8 @@ export default class TabBarView extends Component {
                                 <NavigatorIOS
                                     style = {{flex: 1}}
                                     translucent={false}
-                                    barTintColor={Constants.colors.themeColor}
-                                    titleTextColor={'white'}
+                                    barTintColor={i === 0 ? Constants.colors.themeColor : 'white'}
+                                    titleTextColor={i === 0 ? 'white' : 'black'}
                                     tintColor={'white'}
                                     navigationBarHidden={i === 3 ? true : false}
                                     initialRoute={{title: controller.title, component: Component}}
