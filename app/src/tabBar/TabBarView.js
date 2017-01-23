@@ -66,7 +66,7 @@ export default class TabBarView extends Component {
                                     })
                                 }}
                             >
-                                <Component/>
+                                <Component navigator = {this.props.navigator} {...this.props}/>
                             </TabBarIOS.Item>
                         )
                     })
