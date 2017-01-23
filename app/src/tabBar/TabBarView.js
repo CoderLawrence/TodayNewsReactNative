@@ -11,8 +11,8 @@ import {
     NavigatorIOS,
 } from 'react-native';
 
-import Constants from '../common/constants';
-import Home from '../component/home/home';
+import Constants from '../common/Constants';
+import Home from '../component/home/Home';
 import Video from '../component/video/video';
 import Care from '../component/care/care';
 import Personal from '../component/personal/personal';
@@ -66,25 +66,7 @@ export default class TabBarView extends Component {
                                     })
                                 }}
                             >
-                                <NavigatorIOS
-                                    style = {{flex: 1}}
-                                    translucent={false}
-                                    barTintColor={i === 0 ? Constants.colors.themeColor : 'white'}
-                                    titleTextColor={i === 0 ? 'white' : 'black'}
-                                    tintColor={'white'}
-                                    navigationBarHidden={i === 3 ? true : false}
-                                    initialRoute={{title: controller.title, component: Component}}
-                                    configureScence = {() => {
-                                        return Navigator.SceneConfigs.PushFromRight;
-                                    }}
-
-                                    renderScence = {(route, navigator) => {
-                                        let Component = route.component;
-                                        return (
-                                            <Component navigator = {navigator} route = {route} {...route.passProps}/>
-                                        )
-                                    }}
-                                />
+                                <Component/>
                             </TabBarIOS.Item>
                         )
                     })

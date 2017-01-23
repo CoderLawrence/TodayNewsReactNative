@@ -10,7 +10,7 @@ import {
     StyleSheet,
 } from 'react-native';
 
-import Constants from '../../common/constants';
+import Constants from '../../common/Constants';
 
 export default class PersonalHeader extends Component {
 

@@ -6,19 +6,32 @@ import React, {Component} from 'react';
 import {
     StyleSheet,
     View,
-    NavigatorIOS,
+    Navigator,
     AppRegistry,
     StatusBar
 } from 'react-native';
 
-import TabBarView from '../src/tabBar/tabBarView'
+import TabBarView from './tabBar/TabBarView'
 
 export default class App extends Component {
     render() {
         return (
            <View style={styles.container}>
                <StatusBar barStyle = 'light-content'/>
-               <TabBarView/>
+               <Navigator
+                   initialRoute={{name: 'TabBarView', component: TabBarView}}
+                   configureScene={()=> {
+                       return Navigator.SceneConfigs.PushFromRight;
+                   }}
+
+                   renderScene={(route, navigatar)=> {
+                       let Component = route.component;
+
+                       return (
+                           <Component {...route.params} navigator = {navigatar}/>
+                       )
+                   }}
+               />
            </View>
         );
     }
