@@ -39,7 +39,6 @@ export default class BaseNavigationBar extends Component {
         rightItemTitle: '',
         rightTextColor: '#383838',
         rightItemFunc() {},
-
     };
 
     /**
@@ -128,9 +127,9 @@ export default class BaseNavigationBar extends Component {
                                         {
                                             (()=> {
                                                 if (onlyLeftIcon) {
-                                                    <Image style={styles.navLeftImage} source={this.props.leftImageSource}/>
+                                                   return <Image style={styles.navLeftImage} source={this.props.leftImageSource}/>
                                                 } else {
-                                                    <Text style={[styles.navLeftTitle, {color: this.props.leftTextColor}]}>{this.props.leftItemTitle}</Text>
+                                                   return <Text style={[styles.navLeftTitle, {color: this.props.leftTextColor}]}>{this.props.leftItemTitle}</Text>
                                                 }
                                             })()
                                         }
