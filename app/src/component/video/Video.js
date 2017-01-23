@@ -9,10 +9,13 @@ import {
     StyleSheet,
 } from 'react-native';
 
+import NavigatorBar from '../../common/NavigatorBar';
+
 export default class Video extends Component {
     render () {
         return (
             <View style={styles.container}>
+                <NavigatorBar title = {'视频'}/>
                 <Text>hello world</Text>
             </View>
         )

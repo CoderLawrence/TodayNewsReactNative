@@ -65,6 +65,7 @@ export default class NavigatorBar extends Component {
                         })()
                     }
                 </View>
+                <View style={{height: 0.8, backgroundColor: '#D4D4D4'}}></View>
             </View>
         )
     }
@@ -74,7 +75,7 @@ const styles = StyleSheet.create({
 
     barView: {
         height: Platform.OS === 'android' ? 44 : 64,
-        backgroundColor: '#4E78E7',
+        backgroundColor: 'white',
     },
 
     showView: {
@@ -87,7 +88,7 @@ const styles = StyleSheet.create({
     },
 
     title: {
-        color: 'white',
+        color: 'black',
         fontSize: 18.0,
     },
 
@@ -109,5 +110,5 @@ const styles = StyleSheet.create({
 
     barButton: {
         color: 'white',
-    }
+    },
 });
