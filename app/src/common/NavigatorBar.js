@@ -32,9 +32,9 @@ export default class NavigatorBar extends Component {
                                     </View>
                                 </TouchableOpacity>
                             } else if (leftImage) {
-                                return <TouchableOpacity style = {styles.leftNav} onPress = {()=> {leftAction}}>
+                                return <TouchableOpacity style = {styles.leftNav} onPress = {()=> {leftAction()}}>
                                     <View style={{alignItems: 'center'}}>
-                                        <Image source={leftImage}/>
+                                        <Image style={styles.leftImage} source={leftImage}/>
                                     </View>
                                 </TouchableOpacity>
                             }
@@ -58,7 +58,7 @@ export default class NavigatorBar extends Component {
                             } else if (rightImage) {
                                 return <TouchableOpacity style = {styles.rightNav} onPress = {()=> {rightAction()}}>
                                     <View style={{alignItems:'center'}}>
-                                        <Image source={rightImage}/>
+                                        <Image style={styles.rightImage} source={rightImage}/>
                                     </View>
                                 </TouchableOpacity>
                             }
@@ -111,4 +111,12 @@ const styles = StyleSheet.create({
     barButton: {
         color: 'white',
     },
+
+    leftImage: {
+        resizeMode: 'contain',
+    },
+
+    rightImage: {
+        resizeMode: 'contain',
+    }
 });

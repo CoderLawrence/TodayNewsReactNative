@@ -27,7 +27,7 @@ export default class Home extends Component {
     render () {
         return (
             <View style={styles.container}>
-                <NavigatorBar title = {'首页'} rightTitle = {'确定'} rightAction = {this.pop.bind(this)} style = {{backgroundColor: 'red'}}/>
+                <NavigatorBar style = {{backgroundColor: 'red'}}/>
                 <Text style={{alignItems:'center',}}>首页模块</Text>
             </View>
         )
