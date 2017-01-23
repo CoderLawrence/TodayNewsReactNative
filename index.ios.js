@@ -12,6 +12,6 @@ import {
   View
 } from 'react-native';
 
-import App from './app/src/app';
+import App from './app/src/App';
 
 AppRegistry.registerComponent('TodayNews', () => App);

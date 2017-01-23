@@ -24,11 +24,11 @@ export default class App extends Component {
                        return Navigator.SceneConfigs.PushFromRight;
                    }}
 
-                   renderScene={(route, navigatar)=> {
+                   renderScene={(route, navigator)=> {
                        let Component = route.component;
 
                        return (
-                           <Component {...route.params} navigator = {navigatar}/>
+                           <Component {...route.params} navigator = {navigator}/>
                        )
                    }}
                />

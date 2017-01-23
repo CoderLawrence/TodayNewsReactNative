@@ -13,9 +13,9 @@ import {
 
 import Constants from '../common/Constants';
 import Home from '../component/home/Home';
-import Video from '../component/video/video';
-import Care from '../component/care/care';
-import Personal from '../component/personal/personal';
+import Video from '../component/video/Video';
+import Care from '../component/care/Care';
+import Personal from '../component/personal/Personal';
 
 const Tab_Normal_Home = require('../../img/tabBar/home_tabbar_32x32_@2x.png');
 const Tab_Normal_Video = require('../../img/tabBar/video_tabbar_32x32_@2x.png');
