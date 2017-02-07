@@ -5,7 +5,8 @@
 import React, { Component } from 'react';
 
 var WJScrollMenuInfo = {
-
+    title: '',
+    index: 0,
 };
 
 module.exports = WJScrollMenuInfo;

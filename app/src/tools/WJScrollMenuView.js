@@ -13,17 +13,20 @@ import {
     TouchableOpacity,
 } from 'react-native';
 
+import WJScrollMenuInfo from './WJScrollMenuInfo';
+
 /**
  *  定制滑动菜单工具类
  */
 export default class WJScrollMenuView extends Component {
 
     static defaultProps = {
+        menuInfo: [WJScrollMenuInfo],
         backgroundColor: '#ffffff',
     };
 
     static propTypes = {
-        menuInfos: PropTypes.array,
+        menuInfo: PropTypes.array,
         backgroundColor: PropTypes.string,
     };
 
@@ -56,8 +59,5 @@ const Styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#ffffff',
-    },
-
-    selectedItem: {
     },
 });
