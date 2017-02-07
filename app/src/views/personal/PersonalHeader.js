@@ -31,7 +31,7 @@ export default class PersonalHeader extends Component {
                             names.map((title, index) => {
                                 return (
                                     <View style={{width: Constants.screenWidth/3, height: 30, flexDirection: 'row', alignItems: 'center'}} key = {index}>
-                                        <View style={{flex: 1, flexDirection: 'column', alignItems: 'center'}}>
+                                        <View style={{width: Constants.screenWidth/3, height: 30, flexDirection: 'column', alignItems: 'center'}}>
                                             <Text style={{fontSize: 12, color: '#ffffff', backgroundColor: 'rgba(0, 0, 0, 0)', textAlign: 'center'}}>0</Text>
                                             <Text style={{fontSize: 12, color: '#e5e5e5', backgroundColor: 'rgba(0, 0, 0, 0)', textAlign: 'center'}}>{title}</Text>
                                         </View>
