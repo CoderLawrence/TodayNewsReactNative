@@ -12,6 +12,8 @@ var Constants = {
         height: Dimensions.get('window').height,
     },
 
+    screenWidth: Dimensions.get('window').width,
+
     colors: {
         themeColor: '#BB1919',
     },

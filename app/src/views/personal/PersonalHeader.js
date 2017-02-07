@@ -12,6 +12,8 @@ import {
 
 import Constants from '../../common/Constants';
 
+const names = ['关注', '粉丝', '7天访客'];
+
 export default class PersonalHeader extends Component {
 
     constructor(props) {
@@ -24,6 +26,19 @@ export default class PersonalHeader extends Component {
                 <Image style={styles.backgroundImage} source={require('../../../img/personal/wallpaper_profile_night@2x.jpg')}>
                     <Image style={styles.headerImage} defaultSource={require('../../../img/personal/head-1_36x36_@2x.png')}/>
                     <Text style={styles.nameLabel} numberOfLines={1}>{this.props.name}</Text>
+                    <View style={{width: Constants.window.width, height: 20, marginTop: 20, flexDirection: 'row', alignItems: 'center'}}>
+                        {
+                            names.map((title, index) => {
+                                return (
+                                    <View style={{width: Constants.screenWidth/3, height: 20, flexDirection: 'column', alignItems: 'center'}} key = {index}>
+                                        <Text style={{fontSize: 12, color: '#ffffff', backgroundColor: 'rgba(0, 0, 0, 0)', textAlign: 'center'}}>0</Text>
+                                        <Text style={{fontSize: 12, color: '#e5e5e5', backgroundColor: 'rgba(0, 0, 0, 0)', textAlign: 'center'}}>{title}</Text>
+                                        <View style={{width: 1, height: 20}}></View>
+                                    </View>
+                                )
+                            })
+                        }
+                    </View>
                 </Image>
             </View>
         )
@@ -59,5 +74,5 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         backgroundColor: 'rgba(0, 0, 0, 0)',
         color: '#ffffff',
-    }
+    },
 });
