@@ -42,6 +42,8 @@ export default class PersonalHeader extends Component {
                         }
                     </View>
                 </Image>
+                <View style={{width: Constants.window.width, height: 40, backgroundColor: 'red'}}>
+                </View>
             </View>
         )
     }
@@ -50,12 +52,12 @@ export default class PersonalHeader extends Component {
 const styles = StyleSheet.create({
     container: {
         width: Constants.window.width,
-        height: 220,
+        height: 240,
     },
 
     backgroundImage: {
         width: Constants.window.width,
-        height: 220,
+        height: 200,
     },
 
     headerImage: {
