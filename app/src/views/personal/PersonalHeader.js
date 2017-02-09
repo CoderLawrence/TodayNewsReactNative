@@ -12,7 +12,12 @@ import {
 
 import Constants from '../../common/Constants';
 
+const favoriteIcon = require('../../../img/personal/favoriteicon_profile_24x24_@2x.png');
+const nightIcon = require('../../../img/personal/nighticon_profile_24x24_@2x.png');
+const
+
 const names = ['关注', '粉丝', '7天访客'];
+const buttonImages = [favoriteIcon, nightIcon];
 
 export default class PersonalHeader extends Component {
 
@@ -43,6 +48,7 @@ export default class PersonalHeader extends Component {
                     </View>
                 </Image>
                 <View style={{width: Constants.window.width, height: 40, backgroundColor: 'red'}}>
+
                 </View>
             </View>
         )
