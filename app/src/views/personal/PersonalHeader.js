@@ -49,13 +49,13 @@ export default class PersonalHeader extends Component {
                         }
                     </View>
                 </Image>
-                <View style={{width: Constants.window.width, height: 40, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+                <View style={{width: Constants.window.width, height: 50, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
                     {
                         buttonImages.map((image, index) => {
                             return (
-                                <TouchableOpacity key = {index} style = {{width: Constants.window.width/3, height: 40, alignItems: 'center', justifyContent: 'center', flexDirection: 'column'}}>
+                                <TouchableOpacity key = {index} style = {{width: Constants.window.width/3, height: 50, alignItems: 'center', justifyContent: 'center', flexDirection: 'column'}}>
                                     <Image source={image}/>
-                                    <Text>{buttonNames[index]}</Text>
+                                    <Text style={{fontSize: 12}}>{buttonNames[index]}</Text>
                                 </TouchableOpacity>
                             )
                         })
@@ -69,7 +69,7 @@ export default class PersonalHeader extends Component {
 const styles = StyleSheet.create({
     container: {
         width: Constants.window.width,
-        height: 240,
+        height: 250,
     },
 
     backgroundImage: {
