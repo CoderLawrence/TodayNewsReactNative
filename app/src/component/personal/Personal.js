@@ -24,13 +24,14 @@ export default class Personal extends Component {
         return (
             <View style={styles.container}>
                 <PersonalHeader name = 'CoderLawrence' clickButton={() => this.clickButton()}/>
+
             </View>
         )
     }
 
     clickButton() {
         this.props.navigator.push({
-            title: '我的收藏',
+            title: '收藏历史',
             component: PersonalFavorite,
         })
     }
