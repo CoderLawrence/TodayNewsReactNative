@@ -21,7 +21,7 @@ import WJScrollMenuInfo from './WJScrollMenuInfo';
 export default class WJScrollMenuView extends Component {
 
     static defaultProps = {
-        menuInfo: [WJScrollMenuInfo],
+        menuInfo: PropTypes.array,
         backgroundColor: '#ffffff',
     };
 

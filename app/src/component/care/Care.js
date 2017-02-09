@@ -24,6 +24,7 @@ export default class Care extends Component {
                     title={'我的关注'}
                     rightItemTitle={'确定'}
                     leftImageSource={require('../../../img/navigator/leftbackbutton_video_detais_44x44_@2x.png')}
+                    leftItemFunc={() => alert('你啊')}
                 />
                 <Text>hello world</Text>
             </View>

@@ -2,7 +2,7 @@
  * Created by lawrence on 2017/1/22.
  */
 
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import {
     View,
     Text,
@@ -25,6 +25,14 @@ export default class PersonalHeader extends Component {
 
     constructor(props) {
         super(props);
+    }
+
+    static defaultProps = {
+        clickButton(){alert('你啊')}
+    }
+
+    static propTypes = {
+        clickButton: PropTypes.func
     }
 
     render() {
@@ -53,7 +61,7 @@ export default class PersonalHeader extends Component {
                     {
                         buttonImages.map((image, index) => {
                             return (
-                                <TouchableOpacity key = {index} style = {{width: Constants.window.width/3, height: 50, alignItems: 'center', justifyContent: 'center', flexDirection: 'column'}}>
+                                <TouchableOpacity key = {index} style = {{width: Constants.window.width/3, height: 50, alignItems: 'center', justifyContent: 'center', flexDirection: 'column'}} onPress = {this.props.clickButton}>
                                     <Image source={image}/>
                                     <Text style={{fontSize: 12}}>{buttonNames[index]}</Text>
                                 </TouchableOpacity>

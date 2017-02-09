@@ -2,11 +2,11 @@
  * Created by lawrence on 2017/2/3.
  */
 
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 var WJScrollMenuInfo = {
-    title: '',
-    index: 0,
+    title: PropTypes.string,
+    index: PropTypes.number,
 };
 
 module.exports = WJScrollMenuInfo;

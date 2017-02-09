@@ -12,6 +12,7 @@ import {
 
 import Constants from '../../common/Constants';
 import PersonalHeader from '../../views/personal/PersonalHeader';
+import PersonalFavorite from './PersonalFavorite';
 
 export default class Personal extends Component {
 
@@ -22,9 +23,16 @@ export default class Personal extends Component {
     render () {
         return (
             <View style={styles.container}>
-                <PersonalHeader name = 'CoderLawrence'/>
+                <PersonalHeader name = 'CoderLawrence' clickButton={() => this.clickButton()}/>
             </View>
         )
+    }
+
+    clickButton() {
+        this.props.navigator.push({
+            title: '我的收藏',
+            component: PersonalFavorite,
+        })
     }
 }
 
