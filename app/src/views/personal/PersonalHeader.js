@@ -8,16 +8,18 @@ import {
     Text,
     Image,
     StyleSheet,
+    TouchableOpacity
 } from 'react-native';
 
 import Constants from '../../common/Constants';
 
 const favoriteIcon = require('../../../img/personal/favoriteicon_profile_24x24_@2x.png');
 const nightIcon = require('../../../img/personal/nighticon_profile_24x24_@2x.png');
-const
+const settingIcon = require('../../../img/personal/setupicon_profile_24x24_@2x.png');
 
 const names = ['关注', '粉丝', '7天访客'];
-const buttonImages = [favoriteIcon, nightIcon];
+const buttonImages = [favoriteIcon, nightIcon, settingIcon];
+const buttonNames = ['收藏', '夜间', '设置']
 
 export default class PersonalHeader extends Component {
 
@@ -47,8 +49,17 @@ export default class PersonalHeader extends Component {
                         }
                     </View>
                 </Image>
-                <View style={{width: Constants.window.width, height: 40, backgroundColor: 'red'}}>
-
+                <View style={{width: Constants.window.width, height: 40, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+                    {
+                        buttonImages.map((image, index) => {
+                            return (
+                                <TouchableOpacity key = {index} style = {{width: Constants.window.width/3, height: 40, alignItems: 'center', justifyContent: 'center', flexDirection: 'column'}}>
+                                    <Image source={image}/>
+                                    <Text>{buttonNames[index]}</Text>
+                                </TouchableOpacity>
+                            )
+                        })
+                    }
                 </View>
             </View>
         )
@@ -85,4 +96,5 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(0, 0, 0, 0)',
         color: '#ffffff',
     },
+
 });
