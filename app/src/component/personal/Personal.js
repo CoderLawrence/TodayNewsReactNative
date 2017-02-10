@@ -9,7 +9,7 @@ import {
     Image,
     StyleSheet,
     ListView,
-    TouchableHightlight,
+    TouchableHighlight,
 } from 'react-native';
 
 import Constants from '../../common/Constants';
@@ -23,13 +23,14 @@ export default class Personal extends Component {
         const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         this.state = {
             dataSource: ds.cloneWithRows([
-                'John', 'Joel', 'James', 'Jimmy', 'Jackson', 'Jillian', 'Julie', 'Devin'
+                '消息通知', '头条商城', '京东特供', '我要爆料', '用户反馈', '系统设置'
             ])
         };
 
         //bind
         this._renderRow = this._renderRow.bind(this);
         this._renderSeparator = this._renderSeparator.bind(this);
+        this._renderSectionHeader = this._renderSectionHeader.bind(this);
     }
 
     render () {
@@ -40,18 +41,23 @@ export default class Personal extends Component {
                     renderRow={this._renderRow}
                     renderSeparator={this._renderSeparator}
                     renderHeader={() => <PersonalHeader name = 'CoderLawrence' clickButton={() => this.clickButton()}/>}
-                    renderSectionHeader={()=> <View style={{height: 10, backgroundColor: '#e5e5e5'}}></View>}
+                    renderSectionHeader={this._renderSectionHeader}
                 >
                 </ListView>
             </View>
         )
     }
 
-    _renderRow(rowData) {
+    _renderRow(rowData: string, sectionID: number, rowID: number, hightlightRow: (sectionID: number, rowID: number) => void) {
         return (
-            <View style={{height: 50, justifyContent: 'center'}}>
-                <Text>{rowData}</Text>
-            </View>
+            <TouchableHighlight onPress = {() => {
+                this._pressRow(rowID);
+                hightlightRow(sectionID, rowID);
+            }}>
+                <View style={{height: 50, justifyContent: 'center'}}>
+                    <Text style={{marginLeft: 10}}>{rowData}</Text>
+                </View>
+            </TouchableHighlight>
         );
     }
 
@@ -63,6 +69,16 @@ export default class Personal extends Component {
             >
             </View>
         );
+    }
+
+    _renderSectionHeader(sectionID: number) {
+        return (
+            <View key = {sectionID} style={{height: 10, backgroundColor: '#e5e5e5'}}></View>
+        );
+    }
+
+    _pressRow(rowID: number) {
+        alert('你啊')
     }
 
     clickButton() {
