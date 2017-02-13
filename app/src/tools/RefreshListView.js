@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 
 import LoadingView from './LoadingView';
+import PersonalHeader from '../views/personal/PersonalHeader';
 
 export default class RefreshListView extends Component {
 
@@ -23,6 +24,7 @@ export default class RefreshListView extends Component {
     };
 
     static propTypes = {
+        headerView: PropTypes.node,
         showSeparatorColor: PropTypes.bool,
         separatorColor: PropTypes.string,
         backgroundColor: PropTypes.string,
@@ -49,13 +51,13 @@ export default class RefreshListView extends Component {
 
     render() {
 
-        if (!this.state.loaded) {
-            return <LoadingView isVisible={!this.state.loaded}/>;
-        }
-
+        // if (!this.state.loaded) {
+        //     return <LoadingView isVisible={!this.state.loaded}/>;
+        // }
         return (
           <ListView
-              dataSource={this.state.dataSource}
+              dataSource = {this.state.dataSource}
+              renderHeader = {() => this.props.headerView}
               style = {[this.props.backgroundColor, styles.listView]}
           />
         );

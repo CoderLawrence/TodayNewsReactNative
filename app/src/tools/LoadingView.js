@@ -14,7 +14,7 @@ const LoadingView = ({isVisible}) => {
         <ActivityIndicator
             animating={isVisible}
             style = {[activityIndicator, {height: 80}]}
-            size={'large'}
+            size = 'large'
         />
     );
 };

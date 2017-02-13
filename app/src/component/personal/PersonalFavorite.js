@@ -10,15 +10,17 @@ import {
 } from 'react-native';
 
 import BaseNavigationBar from '../../common/BaseNavigationBar';
+import RefreshListView from '../../tools/RefreshListView';
 
 export default class PersonalFavorite extends Component {
     render() {
         return (
             <View style={styles.container}>
                 <BaseNavigationBar title={'收藏历史'} leftItemTitle={'返回'} leftItemFunc={this.props.navigator.pop}/>
-                <View style={{flex: 1, backgroundColor: 'red'}}>
-
-                </View>
+                <RefreshListView
+                    backgroundColor={'red'}
+                    headerView={<View style={{height: 100, backgroundColor: 'red'}}></View>}
+                />
             </View>
         )
     }
