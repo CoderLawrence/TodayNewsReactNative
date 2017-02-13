@@ -17,11 +17,13 @@ import LoadingView from './LoadingView';
 export default class RefreshListView extends Component {
 
     static defaultProps = {
+        showSeparatorColor: true,
         separatorColor: '#000000',
-        backgroundColor: '#e5e5e5',
+        backgroundColor: '#ffffff',
     };
 
     static propTypes = {
+        showSeparatorColor: PropTypes.bool,
         separatorColor: PropTypes.string,
         backgroundColor: PropTypes.string,
     };

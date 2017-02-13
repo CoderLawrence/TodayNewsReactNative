@@ -15,6 +15,7 @@ import {
 import Constants from '../../common/Constants';
 import PersonalHeader from '../../views/personal/PersonalHeader';
 import PersonalFavorite from './PersonalFavorite';
+import RefreshListView from '../../tools/RefreshListView';
 
 export default class Personal extends Component {
 
@@ -84,7 +85,7 @@ export default class Personal extends Component {
     clickButton() {
         this.props.navigator.push({
             title: '收藏历史',
-            component: PersonalFavorite,
+            component: RefreshListView,
         })
     }
 }
