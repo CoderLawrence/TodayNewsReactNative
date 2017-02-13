@@ -17,10 +17,12 @@ import LoadingView from './LoadingView';
 export default class RefreshListView extends Component {
 
     static defaultProps = {
+        separatorColor: '#000000',
         backgroundColor: '#e5e5e5',
     };
 
     static propTypes = {
+        separatorColor: PropTypes.string,
         backgroundColor: PropTypes.string,
     };
 
@@ -41,5 +43,25 @@ export default class RefreshListView extends Component {
             loaded: false,
             dataSource: ds
         }
+    };
+
+    render() {
+
+        if (!this.state.loaded) {
+            return <LoadingView isVisible={!this.state.loaded}/>;
+        }
+
+        return (
+          <ListView
+              dataSource={this.state.dataSource}
+              style = {[this.props.backgroundColor, styles.listView]}
+          />
+        );
     }
 }
+
+const styles = StyleSheet.create({
+    listView: {
+        flex: 1,
+    }
+})
