@@ -13,7 +13,6 @@ import {
 } from 'react-native';
 
 import LoadingView from './LoadingView';
-import PersonalHeader from '../views/personal/PersonalHeader';
 
 export default class RefreshListView extends Component {
 
@@ -47,6 +46,8 @@ export default class RefreshListView extends Component {
             loaded: false,
             dataSource: ds
         }
+
+        this._renderSeparator = this._renderSeparator.bind(this);
     };
 
     render() {
@@ -58,8 +59,16 @@ export default class RefreshListView extends Component {
           <ListView
               dataSource = {this.state.dataSource}
               renderHeader = {() => this.props.headerView}
-              style = {[this.props.backgroundColor, styles.listView]}
           />
+        );
+    }
+
+    _renderSeparator(sectionId: number, rowId: number, adjacentRowHighlighted: bool) {
+        return (
+            <View
+                key = {`${sectionId}:${rowId}`}
+                style={{height: 1, backgroundColor: '#e5e5e5'}}
+            ></View>
         );
     }
 }
