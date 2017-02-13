@@ -16,7 +16,7 @@ import {
 // 导航条和状态栏的高度
 const STATUS_BAR_HEIGHT = 20
 const NAV_BAR_HEIGHT = 44
-const Nav_BAR_AND_STATUS_BAR_HEIGHT = 64
+const NAV_BAR_AND_STATUS_BAR_HEIGHT = 64
 
 export default class BaseNavigationBar extends Component {
     /**
@@ -111,10 +111,10 @@ export default class BaseNavigationBar extends Component {
         }
 
         return (
-            <View style={[styles.navBarView, {height: showStatusBar ? Nav_BAR_AND_STATUS_BAR_HEIGHT : NAV_BAR_HEIGHT}]}>
+            <View style={[styles.navBarView, {height: showStatusBar ? NAV_BAR_AND_STATUS_BAR_HEIGHT : NAV_BAR_HEIGHT}]}>
                 <View style={[styles.navBar,
                 {backgroundColor: this.props.barBackgroundColor,
-                 height: showStatusBar ? Nav_BAR_AND_STATUS_BAR_HEIGHT : NAV_BAR_HEIGHT,
+                 height: showStatusBar ? NAV_BAR_AND_STATUS_BAR_HEIGHT : NAV_BAR_HEIGHT,
                  opacity: this.props.barOpacity,
                  },
                  showStatusBar ? {paddingTop: STATUS_BAR_HEIGHT} : {}, this.props.barStyle
