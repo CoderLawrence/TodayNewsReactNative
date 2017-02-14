@@ -52,7 +52,7 @@ export default class PersonalFavorite extends Component {
             <TouchableHighlight onPress = {() => {
                 this._pressRow(rowID);
                 hightlightRow(sectionID, rowID);
-            }}>
+            }} activeOpacity={0.7}>
                 <View style={{height: 50, justifyContent: 'center'}}>
                     <Text style={{marginLeft: 10}}>{rowData}</Text>
                 </View>

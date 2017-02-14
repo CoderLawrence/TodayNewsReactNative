@@ -16,6 +16,7 @@ import Home from '../component/home/Home';
 import Video from '../component/video/Video';
 import Care from '../component/care/Care';
 import Personal from '../component/personal/Personal';
+import Music from '../component/music/Music';
 
 const Tab_Normal_Home = require('../../img/tabBar/home_tabbar_32x32_@2x.png');
 const Tab_Normal_Video = require('../../img/tabBar/video_tabbar_32x32_@2x.png');
@@ -30,6 +31,7 @@ const Tab_Pre_Mine = require('../../img/tabBar/mine_tabbar_press_32x32_@2x.png')
 const tabBarItems = [
     {title: '首页', icon: Tab_Normal_Home, selIcon: Tab_Pre_Home, component: Home},
     {title: '视频', icon: Tab_Normal_Video, selIcon: Tab_Pre_Video, component: Video},
+    {title: '音乐', icon: Tab_Normal_Video, selIcon: Tab_Pre_Video, component: Music},
     {title: '关注', icon: Tab_Normal_Care, selIcon: Tab_Pre_Care, component: Care},
     {title: '我的', icon: Tab_Normal_Mine, selIcon: Tab_Pre_Mine, component: Personal}
 ]
