@@ -20,9 +20,9 @@ export default class Music extends Component {
     super(props);
     this.state = {
       dataSource: new ListView.DataSource({
-        rowHasChanged: ((r1, r2) => (r1 !== r2))
+        rowHasChanged: ((r1, r2) => (r1 !== r2)),
+        sectionHeaderHasChanged: ((s1, s2) => (s1 !== s2)),
       }),
-      artist: null,
       load: false
     }
   }
@@ -48,8 +48,8 @@ export default class Music extends Component {
         <ListView
           dataSource={this.state.dataSource}
           renderRow={this.renderRow}
-          renderHeader={this.renderHeader.bind(this)}
           renderSeparator={this.renderSeparator}
+          renderSectionHeader={this.renderSectionHeader}
         />
       </View>
     )
@@ -76,29 +76,75 @@ export default class Music extends Component {
     )
   }
 
-  renderRow(rowData) {
-    return (
-      <View style={{flex:1, height:58, marginLeft:10, marginRight:10, justifyContent:'space-around'}}>
-        <View style={{flexDirection:'row', alignItems:'center', flexWrap:'wrap', marginTop:4}}>
-          <Text style={{fontSize:15}}>
-            {rowData.title}
-          </Text>
-          <Text style={{fontSize:10, width:20, height:12, textAlign:'center', backgroundColor:'#f34983', color:'#fff', marginLeft:5, borderRadius:3}}>
-            HQ
+  renderRow(rowData, sectionId, rowId, hightlightRow:(sectionId, rowId) => void) {
+    if (sectionId == 'artists') {
+      return (
+        <View style={{flex:1, height:70}}>
+          <View style={{height:69.5, flexDirection:'row'}}>
+            <Image source={{uri:rowData.portrait}} style={{width:50, height:50, margin:10, borderRadius:8}}/>
+            <View style={{flexDirection:'column', justifyContent:'space-around'}}>
+              <Text style={{fontSize:16, marginTop:10}}>
+                {rowData.name}
+              </Text>
+              <Text style={{fontSize:12, color:'#666', marginBottom:10}}>
+                单曲:{rowData.num_tracks} 专辑:{rowData.num_albums}
+              </Text>
+            </View>
+          </View>
+          <View style={{backgroundColor:'#ddd', height:0.5}}>
+          </View>
+        </View>
+      );
+    } else if (sectionId == 'tracks') {
+      var artistNames = rowData.artists.map((artist) => {
+        return artist.name;
+      })
+      return (
+        <View style={{flex:1, height:58, marginLeft:10, marginRight:10, justifyContent:'space-around'}}>
+          <View style={{flexDirection:'row', alignItems:'center', flexWrap:'wrap', marginTop:4}}>
+            <Text style={{fontSize:15}}>
+              {rowData.title}
+            </Text>
+            <View style = {{width:20, height:15, backgroundColor:'#f34983', alignItems:'center', justifyContent:'center', borderRadius:5, marginLeft:5}}>
+              <Text style={{fontSize:10, textAlign:'justify', color:'#fff'}}>HQ</Text>
+            </View>
+          </View>
+          <Text style={{fontSize:11, color:'#888', marginBottom:4}}>
+            {artistNames.join(',')} - {rowData.album.name}
           </Text>
         </View>
-        <Text style={{fontSize:11, color:'#888', marginBottom:4}}>
-          {rowData.album.name}
-        </Text>
-      </View>
-    )
+      )
+    } else {
+      return null;
+    }
   }
 
   renderSeparator(sectionId, rowId) {
     return (
-        <View key = {`${sectionId}_${rowId}`} style={{backgroundColor:'#ddd', height:0.5}}>
-        </View>
+      <View key = {`${sectionId}_${rowId}`} style={{backgroundColor:'#ddd', height:0.5}}>
+      </View>
     );
+  }
+
+  renderSectionHeader(sectionData, sectionId) {
+    console.log(sectionId)
+    var title = (sectionId == 'artists') ? '歌手' : '在线歌曲';
+    return (
+      <View key = {sectionId} style={{flex:1, height:42, backgroundColor:'#fff'}}>
+        <View style={{height:41.5, flexDirection:'row', alignItems:'center'}}>
+          <View style={{backgroundColor:'#f34983', width:14, height:14, borderRadius:7, marginLeft:10}}>
+          </View>
+          <Text style={{marginLeft:5, fontSize:15, color:'#666'}}>
+            {title}
+          </Text>
+        </View>
+        <View style={{height:0.5, backgroundColor:'#ddd'}}>
+        </View>
+      </View>
+    );
+  }
+
+  didSelectedRow(sectionId, rowId) {
   }
 
   /**
@@ -113,14 +159,15 @@ export default class Music extends Component {
       .then((response) => response.json())//取数据
       .then((responseText) => {//处理数据
         //通过setState()方法重新渲染界面
-        //var weather = responseText.results[0];
-        //console.log(weather)
+        var data = {
+          'artists' : responseText.artists,
+          'tracks'  : responseText.tracks,
+        }
         this.setState({
           //改变加载ListView
           load: true,
           //设置数据源刷新界面
-          dataSource: this.state.dataSource.cloneWithRows(responseText.tracks),
-          artist: responseText.artists[0]
+          dataSource: this.state.dataSource.cloneWithRowsAndSections(data),
         })
       })
       .catch((error) => {
