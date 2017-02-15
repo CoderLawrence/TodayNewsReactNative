@@ -16,23 +16,23 @@ import TabBarView from './tabBar/TabBarView'
 export default class App extends Component {
     render() {
         return (
-           <View style={styles.container}>
-               <StatusBar barStyle = 'light-content'/>
-               <Navigator
-                   initialRoute={{name: 'TabBarView', component: TabBarView}}
-                   configureScene={()=> {
-                       return Navigator.SceneConfigs.PushFromRight;
-                   }}
+            <View style={styles.container}>
+                <StatusBar barStyle='light-content'/>
+                <Navigator
+                    initialRoute={{name: 'TabBarView', component: TabBarView}}
+                    configureScene={() => {
+                        return Navigator.SceneConfigs.PushFromRight;
+                    }}
 
-                   renderScene={(route, navigator)=> {
-                       let Component = route.component;
+                    renderScene={(route, navigator) => {
+                        let Component = route.component;
 
-                       return (
-                           <Component {...route.params} navigator = {navigator}/>
-                       )
-                   }}
-               />
-           </View>
+                        return (
+                            <Component {...route.params} navigator={navigator}/>
+                        )
+                    }}
+                />
+            </View>
         );
     }
 }

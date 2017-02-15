@@ -5,8 +5,8 @@
 import React, { Component, PropTypes } from 'react';
 
 var WJScrollMenuInfo = {
-    title: PropTypes.string,
-    index: PropTypes.number,
+    title: string,
+    index: number,
 };
 
 module.exports = WJScrollMenuInfo;

@@ -2,7 +2,7 @@
  * Created by lawrence on 2017/1/22.
  */
 
-import React, { Component, PropTypes } from 'react';
+import React, {Component, PropTypes} from 'react';
 import {
     View,
     Text,
@@ -28,7 +28,9 @@ export default class PersonalHeader extends Component {
     }
 
     static defaultProps = {
-        clickButton(){alert('你啊')}
+        clickButton(){
+            alert('你啊')
+        }
     }
 
     static propTypes = {
@@ -38,17 +40,45 @@ export default class PersonalHeader extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Image style={styles.backgroundImage} source={require('../../../img/personal/wallpaper_profile_night@2x.jpg')}>
-                    <Image style={styles.headerImage} defaultSource={require('../../../img/personal/head-1_36x36_@2x.png')}/>
+                <Image style={styles.backgroundImage}
+                       source={require('../../../img/personal/wallpaper_profile_night@2x.jpg')}>
+                    <Image style={styles.headerImage}
+                           defaultSource={require('../../../img/personal/head-1_36x36_@2x.png')}/>
                     <Text style={styles.nameLabel} numberOfLines={1}>{this.props.name}</Text>
-                    <View style={{width: Constants.window.width, height: 30, marginTop: 20, flexDirection: 'row', alignItems: 'center'}}>
+                    <View style={{
+                        width: Constants.window.width,
+                        height: 30,
+                        marginTop: 20,
+                        flexDirection: 'row',
+                        alignItems: 'center'
+                    }}>
                         {
                             names.map((title, index) => {
                                 return (
-                                    <View style={{width: Constants.screenWidth/3, height: 30, flexDirection: 'row', alignItems: 'center'}} key = {index}>
-                                        <View style={{width: Constants.screenWidth/3, height: 30, flexDirection: 'column', alignItems: 'center'}}>
-                                            <Text style={{fontSize: 12, color: '#ffffff', backgroundColor: 'rgba(0, 0, 0, 0)', textAlign: 'center'}}>0</Text>
-                                            <Text style={{fontSize: 12, color: '#e5e5e5', backgroundColor: 'rgba(0, 0, 0, 0)', textAlign: 'center'}}>{title}</Text>
+                                    <View style={{
+                                        width: Constants.screenWidth / 3,
+                                        height: 30,
+                                        flexDirection: 'row',
+                                        alignItems: 'center'
+                                    }} key={index}>
+                                        <View style={{
+                                            width: Constants.screenWidth / 3,
+                                            height: 30,
+                                            flexDirection: 'column',
+                                            alignItems: 'center'
+                                        }}>
+                                            <Text style={{
+                                                fontSize: 12,
+                                                color: '#ffffff',
+                                                backgroundColor: 'rgba(0, 0, 0, 0)',
+                                                textAlign: 'center'
+                                            }}>0</Text>
+                                            <Text style={{
+                                                fontSize: 12,
+                                                color: '#e5e5e5',
+                                                backgroundColor: 'rgba(0, 0, 0, 0)',
+                                                textAlign: 'center'
+                                            }}>{title}</Text>
                                         </View>
                                         <View style={{width: 0.5, height: 30, backgroundColor: '#ffffff'}}></View>
                                     </View>
@@ -57,11 +87,23 @@ export default class PersonalHeader extends Component {
                         }
                     </View>
                 </Image>
-                <View style={{width: Constants.window.width, height: 50, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+                <View style={{
+                    width: Constants.window.width,
+                    height: 50,
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }}>
                     {
                         buttonImages.map((image, index) => {
                             return (
-                                <TouchableOpacity key = {index} style = {{width: Constants.window.width/3, height: 50, alignItems: 'center', justifyContent: 'center', flexDirection: 'column'}} onPress = {this.props.clickButton}>
+                                <TouchableOpacity key={index} style={{
+                                    width: Constants.window.width / 3,
+                                    height: 50,
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    flexDirection: 'column'
+                                }} onPress={this.props.clickButton}>
                                     <Image source={image}/>
                                     <Text style={{fontSize: 12}}>{buttonNames[index]}</Text>
                                 </TouchableOpacity>
