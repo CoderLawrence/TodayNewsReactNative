@@ -3,8 +3,8 @@
 ## Installation
 Require node.js, npm install -g react-native-cli,xcode
 
-\#1 $ 'npm install'
+\#1 `$ npm install`
 
 IOS
 
-\#2 run ios/TodayNew.xcodeproj
+\#2 run ios/TodayNew.xcodeproj or `$ react-native run-ios`
