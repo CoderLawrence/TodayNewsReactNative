@@ -51,11 +51,11 @@ export default class Music extends Component {
   renderView() {
     return (
       <View style={{flex:1, backgroundColor:'#fff'}}>
-        <NavigationBar barBackgroundColor={Constants.colors.themeColor}/>
+        <NavigationBar title={'Music'} titleTextColor={'#ffffff'} barBackgroundColor={Constants.colors.themeColor}/>
         <ListView
           dataSource={this.state.dataSource}
           renderRow={this.renderRow}
-          renderHeader={this.renderHeader.bind(this)}
+          renderSectionHeader={this.renderSectionHeader.bind(this)}
           renderSeparator={this.renderSeparator}
         />
       </View>
