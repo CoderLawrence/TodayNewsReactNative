@@ -9,6 +9,9 @@ import {
   ListView
 } from 'react-native';
 
+import NavigationBar from '../../common/BaseNavigationBar';
+import Constants from '../../common/Constants';
+
 Dimensions = require('Dimensions');
 width = Dimensions.get('window').width;
 height = Dimensions.get('window').height;
@@ -43,8 +46,7 @@ export default class Music extends Component {
   renderView() {
     return (
       <View style={{flex:1, backgroundColor:'#fff'}}>
-        <View style={{height:64}}>
-        </View>
+        <NavigationBar barBackgroundColor={Constants.colors.themeColor}/>
         <ListView
           dataSource={this.state.dataSource}
           renderRow={this.renderRow}

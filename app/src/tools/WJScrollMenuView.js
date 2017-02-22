@@ -60,4 +60,8 @@ const Styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#ffffff',
     },
+
+    selectedItem: {
+        backgroundColor: '#ffffff',
+    }
 });
