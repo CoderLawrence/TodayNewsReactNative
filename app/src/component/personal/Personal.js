@@ -2,7 +2,7 @@
  * Created by lawrence on 2017/1/17.
  */
 
-import React, { Component } from 'react';
+import React, {Component, PropTypes} from 'react';
 import {
     View,
     Text,
@@ -20,11 +20,16 @@ export default class Personal extends Component {
 
     constructor(props) {
         super(props);
-        const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+        const ds = new ListView.DataSource({
+            rowHasChanged: (r1, r2) => r1 !== r2,
+            sectionHeaderHasChanged: (s1, s2) => s1 !== s2
+        });
         this.state = {
-            dataSource: ds.cloneWithRows([
-                '消息通知', '头条商城', '京东特供', '我要爆料', '用户反馈', '系统设置'
-            ])
+            dataSource: ds.cloneWithRowsAndSections({
+                notice: ['消息通知'],
+                store: ['头条商城', '京东特供'],
+                my: ['我要爆料', '用户反馈', '系统设置']
+            })
         };
 
         //bind
@@ -33,14 +38,14 @@ export default class Personal extends Component {
         this._renderSectionHeader = this._renderSectionHeader.bind(this);
     }
 
-    render () {
+    render() {
         return (
             <View style={styles.container}>
                 <ListView
                     dataSource={this.state.dataSource}
                     renderRow={this._renderRow}
                     renderSeparator={this._renderSeparator}
-                    renderHeader={() => <PersonalHeader name = 'CoderLawrence' clickButton={() => this.clickButton()}/>}
+                    renderHeader={() => <PersonalHeader name='CoderLawrence' clickButton={() => this.clickButton()}/>}
                     renderSectionHeader={this._renderSectionHeader}
                 >
                 </ListView>
@@ -48,11 +53,11 @@ export default class Personal extends Component {
         )
     }
 
-    _renderRow(rowData: string, sectionID: number, rowID: number, hightlightRow: (sectionID: number, rowID: number) => void) {
+    _renderRow(rowData, sectionID, rowID, highlightRow:(sectionId, rowId) => void) {
         return (
-            <TouchableHighlight onPress = {() => {
+            <TouchableHighlight onPress={() => {
                 this._pressRow(rowID);
-                hightlightRow(sectionID, rowID);
+                highlightRow(sectionID, rowID);
             }} activeOpacity={0.7}>
                 <View style={{height: 50, justifyContent: 'center'}}>
                     <Text style={{marginLeft: 10}}>{rowData}</Text>
@@ -61,23 +66,23 @@ export default class Personal extends Component {
         );
     }
 
-    _renderSeparator(sectionID: number, rowID: number, adjacentRowHighlighted: bool) {
+    _renderSeparator(sectionID, rowID, adjacentRowHighlighted) {
         return (
             <View
-                key = {rowID}
+                key={`${sectionID}:${rowID}`}
                 style={{height: 1, backgroundColor: '#e5e5e5'}}
             >
             </View>
         );
     }
 
-    _renderSectionHeader(sectionID: number) {
+    _renderSectionHeader(sectionID) {
         return (
-            <View key = {sectionID} style={{height: 10, backgroundColor: '#e5e5e5'}}></View>
+            <View key={sectionID} style={{height: 10, backgroundColor: '#e5e5e5'}}></View>
         );
     }
 
-    _pressRow(rowID: number) {
+    _pressRow(rowID) {
         alert('你啊')
     }
 
@@ -89,7 +94,7 @@ export default class Personal extends Component {
     }
 }
 
-const  styles = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#ffffff',

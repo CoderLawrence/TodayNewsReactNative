@@ -2,7 +2,7 @@
  * Created by lawrence on 2017/2/9.
  */
 
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
     View,
     Text,
@@ -40,18 +40,19 @@ export default class PersonalFavorite extends Component {
                     dataSource={this.state.dataSource}
                     renderRow={this._renderRow}
                     renderSeparator={this._renderSeparator}
-                    renderScrollComponent={(props) => <PullRefreshScrollView onRefresh = {(PullRefresh) => this.onRefresh(PullRefresh)} {...props}></PullRefreshScrollView>}
+                    renderScrollComponent={(props) => <PullRefreshScrollView
+                        onRefresh={(PullRefresh) => this.onRefresh(PullRefresh)} {...props}></PullRefreshScrollView>}
                 />
 
             </View>
         )
     }
 
-    _renderRow(rowData: string, sectionID: number, rowID: number, hightlightRow: (sectionID: number, rowID: number) => void) {
+    _renderRow(rowData, sectionID, rowID, highlightRow:(sectionID, rowId) => void) {
         return (
-            <TouchableHighlight onPress = {() => {
+            <TouchableHighlight onPress={() => {
                 this._pressRow(rowID);
-                hightlightRow(sectionID, rowID);
+                highlightRow(sectionID, rowID);
             }} activeOpacity={0.7}>
                 <View style={{height: 50, justifyContent: 'center'}}>
                     <Text style={{marginLeft: 10}}>{rowData}</Text>
@@ -60,19 +61,19 @@ export default class PersonalFavorite extends Component {
         );
     }
 
-    _renderSeparator(sectionID: number, rowID: number, adjacentRowHighlighted: bool) {
+    _renderSeparator(sectionID, rowID, adjacentRowHighlighted) {
         return (
             <View
-                key = {rowID}
+                key={rowID}
                 style={{height: 1, backgroundColor: '#e5e5e5'}}
             >
             </View>
         );
     }
 
-    _renderSectionHeader(sectionID: number) {
+    _renderSectionHeader(sectionID) {
         return (
-            <View key = {sectionID} style={{height: 10, backgroundColor: '#e5e5e5'}}></View>
+            <View key={sectionID} style={{height: 10, backgroundColor: '#e5e5e5'}}></View>
         );
     }
 
